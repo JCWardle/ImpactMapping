@@ -1,0 +1,18 @@
+{
+  "name": "impactmapping",
+  "version": "1.0.0",
+  "description": "Impact mapping is a technique used for innovation and  idea creation aligned to a particular target or goal. This technique has been made popular by the Lean Enterprise book.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jordan Wardle",
+  "license": "ISC",
+  "repository": "npm/npm",
+  "dependencies": {    
+  },
+  "devDependencies": {
+    "webpack": "^3.2.0",
+    "typescript": "^2.4.1"
+  }
+}
