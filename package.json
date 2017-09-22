@@ -1,18 +1,36 @@
 {
   "name": "impactmapping",
   "version": "1.0.0",
-  "description": "Impact mapping is a technique used for innovation and  idea creation aligned to a particular target or goal. This technique has been made popular by the Lean Enterprise book.",
-  "main": "app.js",
+  "description": "An implementation of impact map[ing",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node_modules/.bin/webpack-dev-server",
+    "build": "node_modules/.bin/webpack build"
   },
-  "author": "Jordan Wardle",
+  "author": "",
   "license": "ISC",
-  "repository": "npm/npm",
-  "dependencies": {    
+  "dependencies": {
+    "@angular/common": "^4.4.3",
+    "@angular/compiler": "^4.4.3",
+    "@angular/core": "^4.4.3",
+    "@angular/forms": "^4.4.3",
+    "@angular/http": "^4.4.3",
+    "@angular/platform-browser": "^4.4.3",
+    "@angular/platform-browser-dynamic": "^4.4.3",
+    "@angular/router": "^4.4.3",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.4.3",
+    "zone.js": "^0.8.17"
   },
   "devDependencies": {
-    "webpack": "^3.2.0",
-    "typescript": "^2.4.1"
+    "@types/node": "^8.0.29",
+    "@types/pixi.js": "^4.5.2",
+    "angular2-template-loader": "^0.6.2",
+    "html-loader": "^0.5.1",
+    "image-webpack-loader": "^3.3.1",
+    "ts-loader": "^2.3.1",
+    "typescript": "^2.4.2",
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.5.1"
   }
 }
