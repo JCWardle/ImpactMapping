@@ -13,3 +13,6 @@ import 'reflect-metadata';
 
 // RxJS
 import 'rxjs';
+
+//bootstrapp
+import 'bootstrap/dist/css/bootstrap.css';

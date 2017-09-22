@@ -24,27 +24,16 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.html$/,
-        loader: 'html-loader'
-
+        test: /\.css$/,
+        loaders: 'style-loader!css-loader'
       },
       {
-        test: /\.(gif|png|jpe?g|svg)$/i,
-        loaders: [
-          'file-loader',
-            {
-              loader: 'image-webpack-loader',
-              query: {
-                progressive: true,
-                optimizationLevel: 7,
-                interlaced: false,
-                pngquant: {
-                  quality: '65-90',
-                  speed: 4
-                }
-              }
-            }
-          ]
+        test: /\.html$/,
+        loader: 'html-loader'
+      },
+      { 
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/, 
+        loader: 'url-loader?limit=100000' 
       }
     ]
   },
@@ -55,6 +44,9 @@ module.exports = {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: ['app', 'vendor']
-    })
+    }),
+    plugins: [
+      new ExtractTextPlugin('[name].css')
+    ],
   ]
 };
