@@ -1,5 +1,12 @@
 var path = require('path');
 var webpack = require("webpack");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+function root(args) {
+  var _root = path.resolve(__dirname, '..');
+  args = Array.prototype.slice.call(arguments, 0);
+  return path.join.apply(path, [_root].concat(args));
+}
 
 module.exports = {
   entry: {
@@ -24,17 +31,23 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.css$/,
-        loaders: 'style-loader!css-loader'
-      },
-      {
         test: /\.html$/,
         loader: 'html-loader'
       },
       { 
         test: /\.(png|woff|woff2|eot|ttf|svg)$/, 
         loader: 'url-loader?limit=100000' 
-      }
+      },
+      {
+        test: /\.css$/,
+        exclude: root('src'),
+        use: [ 'style-loader', 'css-loader' ]
+      },
+      {
+        test: /\.css$/,
+        include: root('src'),
+        loader: 'raw-loader'
+      },
     ]
   },
   plugins: [
@@ -45,8 +58,6 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: ['app', 'vendor']
     }),
-    plugins: [
-      new ExtractTextPlugin('[name].css')
-    ],
+    new ExtractTextPlugin('[name].css')
   ]
 };

@@ -3,8 +3,7 @@ import './impactmap.html'
 
 @Component({
     selector: 'impactMapping',
-    templateUrl: './impactmap.html',
-    styleUrls: ['../styles.css']
+    templateUrl: './impactmap.html'
 })
 export class ImpactMapComponent {
     constructor() {
