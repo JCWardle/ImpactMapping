@@ -32,7 +32,7 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        loader: 'html-loader'
+        loader: 'html-loader?caseSensitive=true'
       },
       { 
         test: /\.(png|woff|woff2|eot|ttf|svg)$/, 

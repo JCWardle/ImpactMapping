@@ -1,6 +1,19 @@
-<div class="row">
-    <h1 class="col-md-offset-3">What is your target?</h1>
-</div>
-    <input type="text"></input>
-    <button>Aim</button>
-</div>
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">What is your target?</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="targetForm">
+            <textarea type="textarea" class="form-control" formControlName="target" placeholder="Reduce the amount of time it takes to do a production deployment by 100%" required
+            rows="10">
+            </textarea>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-lg btn-outline-primary btn-block" (click)="c('Close click')">Ok</button>
+    </div>
+</ng-template>
+      
+<button class="btn btn-lg btn-outline-primary btn-block" (click)="open(content)">Get Started!</button>

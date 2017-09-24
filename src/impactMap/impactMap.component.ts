@@ -9,4 +9,6 @@ export class ImpactMapComponent {
     constructor() {
         console.log('test');
     }
+
+
  }

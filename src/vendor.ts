@@ -8,6 +8,7 @@ import '@angular/core';
 import '@angular/common';
 import '@angular/http';
 import '@angular/router';
+import '@angular/forms';
 
 import 'reflect-metadata';
 
@@ -15,4 +16,5 @@ import 'reflect-metadata';
 import 'rxjs';
 
 //bootstrapp
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '@ng-bootstrap/ng-bootstrap';
