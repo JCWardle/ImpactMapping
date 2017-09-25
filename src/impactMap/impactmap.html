@@ -1,3 +1,20 @@
-<div class="container">
-    <h1>Hello!</h1>
+<div class="row">
+    <div class="col">
+        <h2>Target</h2>
+    </div>
+    <div class="col">
+        <h2>Who</h2>
+    </div>
+    <div class="col">
+        <h2>How</h2>
+    </div>
+    <div class="col">
+        <h2>What</h2>
+    </div>
+</div>
+<div class="row">
+    <impactColumn class="col" [name]="Target" [items]="[docService.target]"></impactColumn>
+    <impactColumn class="col" [name]="Who" [items]="[docService.target]"></impactColumn>
+    <impactColumn class="col" [name]="How" [items]="[docService.target]"></impactColumn>
+    <impactColumn class="col" [name]="What" [items]="[docService.target]"></impactColumn>
 </div>

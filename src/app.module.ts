@@ -10,6 +10,7 @@ import { ImpactMapComponent } from './impactMap/impactMap.component';
 import { QuestionComponent } from './question/question.component';
 import { MasterComponent } from './master/master.component';
 import { DocumentService } from './services/documentService';
+import { ImpactColumnComponent } from './impactColumn/impactColumn.component';
  
 const appRoutes: Routes = [
   { path: 'map', component: ImpactMapComponent},
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
   declarations: [
     ImpactMapComponent,
     QuestionComponent,
-    MasterComponent
+    MasterComponent,
+    ImpactColumnComponent
   ],
   bootstrap: [ MasterComponent ],
   providers: [ DocumentService ],

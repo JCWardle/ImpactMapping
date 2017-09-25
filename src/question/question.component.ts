@@ -24,7 +24,7 @@ export class QuestionComponent implements OnInit {
 
     open(content) {
         this.modal.open(content).result.then((result) => {
-            this.documentService.target = this.targetForm.controls.target.value;
+            this.documentService.target.heading = this.targetForm.controls.target.value;
             this.router.navigate(['map']);
         }, (reason) => {
             

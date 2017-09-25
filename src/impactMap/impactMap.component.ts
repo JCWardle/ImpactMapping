@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DocumentService } from '../services/documentService';
 import './impactmap.html'
 
 @Component({
@@ -6,7 +7,7 @@ import './impactmap.html'
     templateUrl: './impactmap.html'
 })
 export class ImpactMapComponent {
-    constructor() {
-        console.log('test');
+
+    constructor(public docService:DocumentService) {
     }
  }

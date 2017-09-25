@@ -1,0 +1,7 @@
+.card-column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    flex-grow: 1;
+}
