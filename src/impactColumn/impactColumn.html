@@ -1,5 +1,6 @@
 <div class="card-column">
-    <div class="card">
-        <p>{{items[0].heading}}</p>
+    <div *ngFor="let card of items">
+        <p>{{ card.heading }}</p>
     </div>
 </div>
+<button class="btn btn-success btn-lg" (click)="add()">Add</button>

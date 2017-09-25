@@ -18,6 +18,13 @@ export class CardComponent implements OnInit {
     constructor(private activeModal: NgbActiveModal) {
     }
 
+    close() {
+        let result:IColumnItem = {
+            heading: this.form.controls.heading.value
+        };
+        this.activeModal.close(result)
+    }
+
     ngOnInit() {
         this.form = new FormGroup({
             heading: new FormControl()
