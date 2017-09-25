@@ -1,0 +1,13 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{heading}}</h4>
+</div>
+<div class="modal-body">
+    <form [formGroup]="form">
+        <textarea type="textarea" class="form-control" formControlName="heading" placeholder="{{hint}}" required
+        rows="10">
+        </textarea>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-lg btn-outline-primary btn-block" (click)="c('Close click')">Ok</button>
+</div>

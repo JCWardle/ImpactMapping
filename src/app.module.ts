@@ -7,15 +7,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ImpactMapComponent } from './impactMap/impactMap.component';
-import { QuestionComponent } from './question/question.component';
+import { CardComponent } from './card/card.component';
 import { MasterComponent } from './master/master.component';
 import { DocumentService } from './services/documentService';
+import { HomeComponent } from './home/home.component';
 import { ImpactColumnComponent } from './impactColumn/impactColumn.component';
  
 const appRoutes: Routes = [
   { path: 'map', component: ImpactMapComponent},
-  { path: '', component: QuestionComponent },
-  { path: '**', component: QuestionComponent }
+  { path: '', component: HomeComponent },
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({
@@ -27,14 +28,16 @@ const appRoutes: Routes = [
   ],
   declarations: [
     ImpactMapComponent,
-    QuestionComponent,
+    CardComponent,
     MasterComponent,
-    ImpactColumnComponent
+    ImpactColumnComponent,
+    HomeComponent
   ],
   bootstrap: [ MasterComponent ],
-  providers: [ DocumentService ],
+  providers: [ DocumentService, CardComponent ],
   exports: [
     ReactiveFormsModule
-  ]
+  ],
+  entryComponents: [ CardComponent ]
 })
 export class AppModule { }
