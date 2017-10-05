@@ -1,7 +1,46 @@
+body {
+    background-color: #edf0ff;
+}
+
+.column-header h2 {
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.impact-map {
+    padding-top: 10px;
+}
+
 .card-column {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
     flex-grow: 1;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: grey
+}
+
+nav {
+
+}
+
+.card {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #f9f1fd;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow: 3px 3px 5px black 
+}
+
+.card p {
+    margin:10px;
+}
+
+.column-button {
+    margin-top: 5px;
 }

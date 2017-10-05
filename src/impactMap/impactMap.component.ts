@@ -9,6 +9,6 @@ import './impactmap.html'
 export class ImpactMapComponent {
 
     constructor(public docService:DocumentService) {
-        
+
     }
  }

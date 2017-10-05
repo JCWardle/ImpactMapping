@@ -16,6 +16,8 @@ export class CardComponent implements OnInit {
     form: FormGroup;
     
     constructor(private activeModal: NgbActiveModal) {
+        console.log('heading');
+        console.log(this.heading);
     }
 
     close() {

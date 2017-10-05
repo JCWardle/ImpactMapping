@@ -18,3 +18,6 @@ import 'rxjs';
 //bootstrapp
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@ng-bootstrap/ng-bootstrap';
+
+//Font-awesome
+import 'font-awesome/css/font-awesome.css';

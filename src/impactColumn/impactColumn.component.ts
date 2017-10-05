@@ -11,6 +11,9 @@ import { IColumnItem } from  '../models/IColumnItem';
 export class ImpactColumnComponent implements OnInit {
     @Input() public items: IColumnItem[];
     @Input() public name: string;
+    @Input() public deleteable: boolean;
+    @Input() public heading: string;
+    @Input() public hint: string;
 
     private columnItems: IColumnItem[];
 
@@ -24,8 +27,9 @@ export class ImpactColumnComponent implements OnInit {
 
     public add() {
         const modalRef: NgbModalRef = this.modalService.open(CardComponent);
-        (<CardComponent>modalRef.componentInstance).heading = "What's your target?";
-        (<CardComponent>modalRef.componentInstance).hint = "Deploy our software product 100% faster";
+        console.log((<CardComponent>modalRef.componentInstance));
+        (<CardComponent>modalRef.componentInstance).heading = this.heading;
+        (<CardComponent>modalRef.componentInstance).hint = this.hint;
         modalRef.result.then((success) => {
             this.items.push(success);
         }, (fail) => {
