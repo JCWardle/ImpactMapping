@@ -14,29 +14,8 @@
         </div>
     </div>
     <div class="row">
-        <impactColumn class="col" 
-            name="Target" 
-            [items]="[docService.target]"
-            [deleteable]="false"
-            heading="Whats your target?"
-            hint="Deploy our software product 100% faster"></impactColumn>
-        <impactColumn class="col" 
-            name="Who" 
-            [items]="docService.who" 
-            [deleteable]="true"
-            heading="Who can influence your target?"
-            hint="Developers" ></impactColumn>
-        <impactColumn class="col" 
-            name="How" 
-            [items]="docService.how"
-            [deleteable]="true"
-            heading="How can this actor influence your target?"
-            hint="Deploy without any down time"></impactColumn>
-        <impactColumn class="col" 
-            name="What" 
-            [items]="docService.what"
-            [deleteable]="true"
-            heading="What can we do to make our how happen?"
-            hint="Add a load balancer"></impactColumn>
+        <impactColumn *ngFor="let column of docService.columns" class="col" 
+            [column]="column">
+        </impactColumn>
     </div>
 </div>

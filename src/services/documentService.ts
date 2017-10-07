@@ -1,12 +1,9 @@
-import { IColumnItem } from '../models/IColumnItem';
+import { IColumn } from '../models/IColumn';
 
 export class DocumentService {
-    public target:IColumnItem = { heading: "" };
-    public who: IColumnItem[];
-    public what: IColumnItem[];
-    public how: IColumnItem[];
+    public columns: IColumn[]
 
     constructor() {
-
+        this.columns = [];
     }
 }

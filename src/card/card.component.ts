@@ -2,7 +2,7 @@ import { Component, OnInit, NgModule, Input } from '@angular/core';
 import './card.html'
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl, FormBuilder, FormGroupDirective } from '@angular/forms';
-import { IColumnItem } from '../models/IColumnItem';
+import { ICard } from '../models/ICard';
 
 @Component({
     selector: 'card',
@@ -12,7 +12,7 @@ export class CardComponent implements OnInit {
     @Input() heading:string;
     @Input() hint:string;
 
-    public card: IColumnItem;
+    public card: ICard;
     form: FormGroup;
     
     constructor(private activeModal: NgbActiveModal) {
@@ -21,7 +21,7 @@ export class CardComponent implements OnInit {
     }
 
     close() {
-        let result:IColumnItem = {
+        let result:ICard = {
             heading: this.form.controls.heading.value
         };
         this.activeModal.close(result)
