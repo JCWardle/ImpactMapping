@@ -1,20 +1,30 @@
-<div *ngIf="column.items.length != 0" class="card-column">
-    <div *ngFor="let card of column.items" class="card">
-        <div class="row">
-            <div class="col-9">
-                <p>{{ card.heading }}</p>
-            </div>
-            <div class="col-3">                    
-                <button *ngIf="deleteable"><i class="fa fa-trash" aria-hidden="true"></i></button>
-            </div>
+<div *ngIf="column.items.length != 0 && column.previousColumn == undefined" class="card-column">
+    <div class="row">
+        <div class="col-9">
+            <p>{{ column.items[0].heading }}</p>
+        </div>
+        <div class="col-3">
+            <button *ngIf="deleteable"><i class="fa fa-trash" aria-hidden="true"></i></button>
         </div>
     </div>
 </div>
-<div *ngIf="column.previousColumn != undefined && column.previousColumn.items.length == 1">
-    <div class="row column-button">
-        <div class="col d-flex flex-row justify-content-center">
-            <div class="mx-auto">
-                <button class="btn btn-success" (click)="add()"><i class="fa fa-plus" aria-hidden="true"></i> Add a {{column.name | lowercase}}</button>
+<div *ngIf="column.previousColumn != undefined" class="card-column">
+    <div *ngFor="let cardGroup of column.previousColumn.items">
+        <div *ngFor="let card of groupCards(cardGroup)" class="card">
+            <div class="row">
+                <div class="col-9">
+                    <p>{{ card.heading }}</p>
+                </div>
+                <div class="col-3">
+                    <button *ngIf="deleteable"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="row column-button">
+            <div class="col d-flex flex-row justify-content-center">
+                <div class="mx-auto">
+                    <button class="btn btn-success" (click)="add(cardGroup)"><i class="fa fa-plus" aria-hidden="true"></i> Add a {{column.name | lowercase}}</button>
+                </div>
             </div>
         </div>
     </div>

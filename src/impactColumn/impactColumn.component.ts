@@ -18,15 +18,28 @@ export class ImpactColumnComponent implements OnInit {
     public ngOnInit() {
     }
 
-    public add() {
+    public add(previous:ICard) {
         const modalRef: NgbModalRef = this.modalService.open(CardComponent);
         console.log((<CardComponent>modalRef.componentInstance));
         (<CardComponent>modalRef.componentInstance).heading = this.column.heading;
         (<CardComponent>modalRef.componentInstance).hint = this.column.hint;
         modalRef.result.then((success) => {
+            success.attached = previous;
             this.column.items.push(success);
         }, (fail) => {
             
         });
+    }
+
+    public groupCards(cardGroup: ICard) {
+        let result: ICard[] = [];
+
+        for(let card of this.column.items) {
+            if(card.attached == cardGroup) {
+                result.push(card);
+            }
+        }
+
+        return result;
     }
  }
