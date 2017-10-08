@@ -14,21 +14,24 @@ export class ImpactMapComponent {
                 items: [],
                 deleteable: true,
                 heading: 'Who can influence your target?',
-                hint: 'Developers'
+                hint: 'Developers',
+                addLabel: 'Who else can influence your target?'
             });
         this.docService.columns.push({
                 name: 'How',
                 items: [],
                 deleteable: true,
                 heading: 'How can this actor influence your target?',
-                hint: 'Deploy without any down time'
+                hint: 'Deploy without any down time',
+                addLabel: 'how can <previous> get closer to the target?'
             });
         this.docService.columns.push({
                 name: 'What',
                 items: [],
                 deleteable: true,
                 heading: 'What can we do to make our how happen?',
-                hint: 'Add a load balancer'
+                hint: 'Add a load balancer',
+                addLabel: 'what needs to happen to <previous>'
             });
 
         for(let c in this.docService.columns) {

@@ -6,5 +6,6 @@ export interface IColumn {
     deleteable: boolean,
     heading: string,
     hint: string,
-    previousColumn?: IColumn
+    previousColumn?: IColumn,
+    addLabel?: string
 }

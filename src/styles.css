@@ -12,19 +12,22 @@ body {
 }
 
 .card-column {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    flex-grow: 1;
     border: 1px solid black;
     border-radius: 5px;
     background-color: grey;
-    height: calc(100vh - 160px);
+    min-height: calc(100vh - 160px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-nav {
-
+.cards {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    flex-grow: 1;
 }
 
 .card {

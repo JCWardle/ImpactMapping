@@ -42,4 +42,8 @@ export class ImpactColumnComponent implements OnInit {
 
         return result;
     }
+
+    public labelText(card: ICard): string {
+        return this.column.addLabel.replace('<previous>', card.heading);
+    }
  }
