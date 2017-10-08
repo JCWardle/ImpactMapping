@@ -22,7 +22,6 @@ body {
 }
 
 .cards {
-    height: inherit;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -47,4 +46,11 @@ body {
 
 .column-button {
     margin-top: 5px;
+}
+
+.btn-add {
+    margin-left: 10px;
+    white-space: normal;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }

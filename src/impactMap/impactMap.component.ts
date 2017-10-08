@@ -23,7 +23,7 @@ export class ImpactMapComponent {
                 deleteable: true,
                 heading: 'How can this actor influence your target?',
                 hint: 'Deploy without any down time',
-                addLabel: 'how can <previous> get closer to the target?'
+                addLabel: 'How can <previous> help move closer to the target?'
             });
         this.docService.columns.push({
                 name: 'What',
@@ -31,7 +31,7 @@ export class ImpactMapComponent {
                 deleteable: true,
                 heading: 'What can we do to make our how happen?',
                 hint: 'Add a load balancer',
-                addLabel: 'what needs to happen to <previous>'
+                addLabel: 'What needs to happen to <previous>'
             });
 
         for(let c in this.docService.columns) {

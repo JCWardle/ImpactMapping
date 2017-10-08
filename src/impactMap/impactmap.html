@@ -1,21 +1,22 @@
 <div class="impact-map">
     <div class="row">
-        <div class="col column-header">
+        <div class="col-3 column-header">
             <h2>Target</h2>
         </div>
-        <div class="col column-header">
+        <div class="col-3 column-header">
             <h2>Who</h2>
         </div>
-        <div class="col column-header">
+        <div class="col-3 column-header">
             <h2>How</h2>
         </div>
-        <div class="col column-header">
+        <div class="col-3 column-header">
             <h2>What</h2>
         </div>
     </div>
     <div class="row">
-        <impactColumn *ngFor="let column of docService.columns" class="col" 
+        <impactColumn *ngFor="let column of docService.columns" class="col-3" 
             [column]="column">
         </impactColumn>
     </div>
 </div>
+<svg id="svg"></svg>

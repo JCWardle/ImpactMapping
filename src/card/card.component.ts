@@ -22,7 +22,8 @@ export class CardComponent implements OnInit {
 
     close() {
         let result:ICard = {
-            heading: this.form.controls.heading.value
+            heading: this.form.controls.heading.value,
+            id: Math.random().toString(36).substr(2, 9)
         };
         this.activeModal.close(result)
     }
