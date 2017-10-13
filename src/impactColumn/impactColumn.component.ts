@@ -40,13 +40,10 @@ export class ImpactColumnComponent implements OnInit {
                 result.push(card);
             }
         }
-
-        this.drawLines();
-
         return result;
     }
 
-    private drawLines() {
+    public drawLines() {
         for(let card of this.column.items) {
             this.drawLine(card.id, card.attached.id);
         }
@@ -62,23 +59,58 @@ export class ImpactColumnComponent implements OnInit {
         return result;
     }
 
-    private drawLine(first: string, second:string) {
+    private drawLine(right: string, left:string) {
         let svg:SVGFEOffsetElement = <any>document.getElementById('svg');
-        let firstDiv: HTMLElement = document.getElementById(first);
-        let secondDiv: HTMLElement = document.getElementById(second);
+        let rightDiv: HTMLElement = document.getElementById(right);
+        let leftDiv: HTMLElement = document.getElementById(left);
+        let newPath: SVGPathElement = document.createElementNS('http://www.w3.org/2000/svg',"path");  
 
         let svgCoord:number[] = this.offset(<any>svg);
-        let firstCoord:number[] = this.offset(firstDiv);
-        let secondCoord:number[] = this.offset(secondDiv);
+        let rightCoord:number[] = this.offset(rightDiv);
+        let leftCoord:number[] = this.offset(leftDiv);
 
         let start: number[] = [
-            firstCoord[0] + 0.5 * firstDiv.offsetWidth - svg[0],
-            firstCoord[1] + 0.5 * firstDiv.offsetHeight - svg[1]
+            rightCoord[0] - svgCoord[0],
+            rightCoord[1] + rightDiv.offsetHeight - svgCoord[1]
         ]
         let end: number[] = [
-            secondCoord[0] + 0.5 * secondDiv.offsetWidth - svg[0],
-            secondCoord[1] + 0.5 * secondDiv.offsetHeight - svg[1]
+            leftCoord[0] + leftDiv.offsetWidth - svgCoord[0],
+            leftCoord[1] - leftDiv.offsetHeight - svgCoord[1]
         ]
+
+        let path = this.drawPath(svg, newPath, start, end);
+
+        svg.appendChild(path);
+    }
+
+    private drawPath(svg:SVGFEOffsetElement, path:SVGPathElement, start:number[], end:number[]): SVGPathElement {
+        let stroke:number = 10;
+
+        let deltaX:number = (end[0] - start[0]) * 0.15;
+        let deltaY:number = (end[1] - start[1]) * 0.15;
+
+        let delta:number = deltaY < Math.abs(deltaX) ? deltaY: Math.abs(deltaX);
+
+        var arc1 = 0; 
+        var arc2 = 1;
+
+        if (start[0] > end[0]) {
+            arc1 = 1;
+            arc2 = 0;
+        }
+
+        path.setAttribute("d",  "M"  + start[0] + " " + start[1] +
+        " V" + (start[1] + delta) +
+        " A" + delta + " " +  delta + " 0 0 " + arc1 + " " + (start[0] + delta* this.signum(deltaX)) + " " + (start[1] + 2*delta) +
+        " H" + (end[0] - delta* this.signum(deltaX)) + 
+        " A" + delta + " " +  delta + " 0 0 " + arc2 + " " + end[0] + " " + (start[1] + 3*delta) +
+        " V" + end[1] );
+
+        return path;
+    }
+
+    private signum(x:number):number {
+        return (x < 0) ? -1 : 1;
     }
 
     public labelText(card: ICard): string {
