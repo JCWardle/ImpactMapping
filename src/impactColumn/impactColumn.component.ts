@@ -54,8 +54,8 @@ export class ImpactColumnComponent implements OnInit {
         let result:number[] = [];
         let box = elem.getBoundingClientRect();
         
-        result[0] = box.left + window.pageXOffset - elem.clientLeft;
-        result[1] = box.top + window.pageYOffset - elem.clientTop;
+        result[0] = box.left;
+        result[1] = box.top;
         return result;
     }
 
@@ -71,11 +71,11 @@ export class ImpactColumnComponent implements OnInit {
 
         let start: number[] = [
             rightCoord[0] - svgCoord[0],
-            rightCoord[1] + rightDiv.offsetHeight - svgCoord[1]
+            rightCoord[1] + rightDiv.offsetHeight / 2 - svgCoord[1]
         ]
         let end: number[] = [
             leftCoord[0] + leftDiv.offsetWidth - svgCoord[0],
-            leftCoord[1] - leftDiv.offsetHeight - svgCoord[1]
+            leftCoord[1] + leftDiv.offsetHeight / 2 - svgCoord[1]
         ]
 
         let path = this.drawPath(svg, newPath, start, end);
@@ -86,25 +86,12 @@ export class ImpactColumnComponent implements OnInit {
     private drawPath(svg:SVGFEOffsetElement, path:SVGPathElement, start:number[], end:number[]): SVGPathElement {
         let stroke:number = 10;
 
-        let deltaX:number = (end[0] - start[0]) * 0.15;
-        let deltaY:number = (end[1] - start[1]) * 0.15;
-
-        let delta:number = deltaY < Math.abs(deltaX) ? deltaY: Math.abs(deltaX);
-
-        var arc1 = 0; 
-        var arc2 = 1;
-
-        if (start[0] > end[0]) {
-            arc1 = 1;
-            arc2 = 0;
-        }
-
-        path.setAttribute("d",  "M"  + start[0] + " " + start[1] +
-        " V" + (start[1] + delta) +
-        " A" + delta + " " +  delta + " 0 0 " + arc1 + " " + (start[0] + delta* this.signum(deltaX)) + " " + (start[1] + 2*delta) +
-        " H" + (end[0] - delta* this.signum(deltaX)) + 
-        " A" + delta + " " +  delta + " 0 0 " + arc2 + " " + end[0] + " " + (start[1] + 3*delta) +
-        " V" + end[1] );
+        let halfX:number = Math.abs((end[0] - start[0]) / 2);
+        path.setAttribute("d",  "M"  + end[0] + " " + end[1] +
+            " H" + (end[0] + halfX) +
+            " V" + start[1] +
+            " H" + start[0]
+        );
 
         return path;
     }

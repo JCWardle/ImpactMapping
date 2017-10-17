@@ -71,7 +71,8 @@ body {
 }
 
 path {
-    stroke: blue;
-    stroke-width: 10px;
+    stroke: black;
+    stroke-width: 2px;
+    opacity: 50%;
     fill: none;
 }
