@@ -30,24 +30,27 @@ module.exports = {
         ],
         exclude: /node_modules/
       },
+      { 
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/, 
+        loader: 'file-loader?limit=100000' 
+      },
       {
         test: /\.html$/,
         loader: 'html-loader?caseSensitive=true'
       },
       { 
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/, 
-        loader: 'url-loader?limit=100000' 
+        test: /\.css$/, loader: "style-loader!css-loader?importLoaders=1" 
       },
       {
-        test: /\.css$/,
-        exclude: root('src'),
-        use: [ 'style-loader', 'css-loader' ]
-      },
-      {
-        test: /\.css$/,
-        include: root('src'),
-        loader: 'raw-loader'
-      },
+        test: /\.scss$/,
+        use: [{
+            loader: "style-loader"
+        }, {
+            loader: "css-loader"
+        }, {
+            loader: "sass-loader"
+        }]
+      }
     ]
   },
   plugins: [

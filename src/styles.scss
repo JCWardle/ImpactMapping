@@ -1,0 +1,115 @@
+$background-color: white;
+$foreground-color: #8A8FF7;
+$midground-color: #E3DEF9;
+$navbar-color: white;
+$font-color: black;
+$decision-background-color: #301C42;
+$decision-font-color: white;
+
+$navbar-font-color: black;
+$font: 'Roboto', sans-serif;
+
+.btn-decision {
+    background-color: $decision-background-color;
+    color: $decision-font-color
+}
+
+body {
+    background-color: $background-color;
+    font-family: $font;
+}
+
+nav {
+    background-color: $navbar-color;
+    margin-bottom:20px;
+    color: $navbar-font-color;
+    border-bottom: solid grey 1px;
+}
+
+nav button {
+    background-color: $background-color !important; 
+    border: none !important;
+}
+
+.foreground {
+    background-color: $foreground-color;
+    min-height: calc(100vh - 80px);
+}
+
+.column-header h2 {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.impact-map {
+    padding-top: 10px;
+}
+
+.card-column {
+    border-radius: 5px;
+    background-color: $midground-color;
+    min-height: calc(100vh - 80px);
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: -1;
+    min-height: calc(100vh - 160px);
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    flex-grow: 1;
+}
+
+.card {
+    border-radius: 3px;
+    background-color: $foreground-color;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.card p {
+    margin:10px;
+}
+
+.column-button {
+    margin-top: 5px;
+}
+
+.btn-add {
+    margin-left: 10px;
+    white-space: normal;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+#svgContainer { 
+	z-index: 1;
+	position:absolute;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+}
+
+#svg {
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+}
+
+path {
+    stroke: $foreground-color;
+    stroke-width: 2px;
+    opacity: 50%;
+    fill: none;
+}
