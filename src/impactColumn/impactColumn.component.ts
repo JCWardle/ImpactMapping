@@ -4,6 +4,7 @@ import { CardComponent } from '../card/card.component';
 import './impactColumn.html'
 import { ICard } from  '../models/ICard';
 import { IColumn } from '../models/IColumn';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'impactColumn',
@@ -27,6 +28,11 @@ export class ImpactColumnComponent implements OnInit {
         modalRef.result.then((success) => {
             success.attached = previous;
             this.column.items.push(success);
+
+            Observable.timer(10).subscribe(obs => {
+                this.drawLines();
+            });
+
         }, (fail) => {
             
         });
@@ -44,6 +50,8 @@ export class ImpactColumnComponent implements OnInit {
     }
 
     public drawLines() {
+        let svg:SVGFEOffsetElement = <any>document.getElementById('svg');
+        svg.innerHTML = "";
         for(let card of this.column.items) {
             this.drawLine(card.id, card.attached.id);
         }

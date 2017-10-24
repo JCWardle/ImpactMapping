@@ -5,13 +5,15 @@ $navbar-color: white;
 $font-color: black;
 $decision-background-color: #301C42;
 $decision-font-color: white;
+$corner-radius: 3px;
 
 $navbar-font-color: black;
 $font: 'Roboto', sans-serif;
 
 .btn-decision {
     background-color: $decision-background-color;
-    color: $decision-font-color
+    color: $decision-font-color;
+    white-space: normal;
 }
 
 body {
@@ -33,14 +35,19 @@ nav button {
 
 .foreground {
     background-color: $foreground-color;
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 20px);
 }
 
 .column-header h2 {
     text-align: center;
-    margin-top: 5px;
+    padding-top: 5px;
+    background-color: $foreground-color;
     font-size: 25px;
     font-weight: 300;
+    border-top-left-radius: $corner-radius;
+    border-top-right-radius: $corner-radius;
+    padding-bottom: 5px;
+
 }
 
 .impact-map {
@@ -50,7 +57,7 @@ nav button {
 .card-column {
     border-radius: 5px;
     background-color: $midground-color;
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 20px);
 }
 
 .card-container {
@@ -70,7 +77,7 @@ nav button {
 }
 
 .card {
-    border-radius: 3px;
+    border-radius: $corner-radius;
     background-color: $foreground-color;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -84,13 +91,6 @@ nav button {
 
 .column-button {
     margin-top: 5px;
-}
-
-.btn-add {
-    margin-left: 10px;
-    white-space: normal;
-    margin-right: 10px;
-    margin-bottom: 10px;
 }
 
 #svgContainer { 
@@ -112,4 +112,31 @@ path {
     stroke-width: 2px;
     opacity: 50%;
     fill: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.title {
+    margin-top: 200px;
+}
+
+.title-blurb h1 {
+    font-size: 80px;
+}
+
+.title-blurb h1 strong{
+    color:black;
+}
+
+.product-headline {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 45px;
+    text-align: left;
+}
+
+.first-headline {
+    margin-top: 150px;
 }
