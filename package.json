@@ -1,11 +1,10 @@
 {
   "name": "impactmapping",
   "version": "1.0.0",
-  "description": "An implementation of impact map[ing",
-  "main": "index.js",
+  "description": "An implementation of impact mapping",
   "scripts": {
-    "start": "node_modules/.bin/webpack-dev-server --open --config webpack.dev.config.ts",
-    "build": "node_modules/.bin/webpack build --config webpack.prod.config.ts"
+    "start": "node_modules/.bin/webpack-dev-server --open --config webpack.dev.config.js",
+    "build": "node_modules/.bin/webpack --config webpack.prod.config.js"
   },
   "author": "",
   "license": "ISC",
@@ -43,6 +42,7 @@
     "to-string-loader": "^1.1.5",
     "ts-loader": "^2.3.1",
     "typescript": "^2.4.2",
+    "uglifyjs-webpack-plugin": "^1.0.1",
     "url-loader": "^0.5.9",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.5.1",
