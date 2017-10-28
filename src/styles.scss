@@ -1,3 +1,5 @@
+@import "~bootstrap/scss/bootstrap";
+
 $background-color: white;
 $foreground-color: #8A8FF7;
 $midground-color: #E3DEF9;
@@ -19,17 +21,6 @@ $font: 'Roboto', sans-serif;
 body {
     background-color: $background-color;
     font-family: $font;
-}
-
-nav {
-    background-color: $navbar-color;
-    margin-bottom:20px;
-    color: $navbar-font-color;
-    border-bottom: solid grey 1px;
-}
-
-nav button {
-    border: none !important;
 }
 
 .foreground {
@@ -117,8 +108,15 @@ button {
     cursor: pointer;
 }
 
-.title {
-    margin-top: 200px;
+//Homepage
+@include media-breakpoint-up(md) {
+    .title {
+        margin-top: 200px;
+    }
+  }
+
+.title-blurb img {
+    margin-top: 50px;
 }
 
 .title-blurb h1 {
@@ -138,4 +136,15 @@ button {
 
 .first-headline {
     margin-top: 150px;
+}
+
+nav {
+    background-color: $navbar-color;
+    margin-bottom:20px;
+    color: $navbar-font-color;
+    border-bottom: solid grey 1px;
+}
+
+nav button {
+    border: none !important;
 }
