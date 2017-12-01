@@ -148,3 +148,14 @@ nav {
 nav button {
     border: none !important;
 }
+
+/* The heart of the matter */
+.impact-map > .row {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.impact-map > .row > .col-xs-3 {
+    display: inline-block;
+    float: none;
+}
