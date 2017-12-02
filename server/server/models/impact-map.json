@@ -1,4 +1,4 @@
-{
+  {
   "name": "impactMap",
   "plural": "impactmap",
   "base": "PersistedModel",
@@ -8,7 +8,28 @@
   },
   "properties": {
     "impactmap": {
-      "type": "object",
+      "type": [{
+          "type": {
+            "name": "string",
+            "hint": "string",
+            "heading": "string",
+            "deleteable": "boolean",
+            "items": [
+              {
+                "type": {
+                  "heading": "string",
+                  "id": "string",
+                  "attached": {
+                    "type": {
+                      "heading": "string",
+                      "id": "string"
+                    }
+                  }
+                }
+              }
+            ]
+          }          
+      }],
       "required": true
     }
   },

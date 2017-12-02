@@ -33,6 +33,8 @@ export class DocumentService {
 
     load(id:any) {
         return this.http.get(this.API_URL + 'impactmap/' + id).subscribe((data:any) => {
+
+
             this.columns = data.impactmap;
         });
     }
