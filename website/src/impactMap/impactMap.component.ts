@@ -2,14 +2,15 @@ import { Component } from '@angular/core';
 import { DocumentService } from '../services/documentService';
 import './impactmap.html';
 import { IColumn } from '../models/IColumn';
+import { Router, ActivatedRoute } from '@angular/router';
+import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
     selector: 'impactMapping',
     templateUrl: './impactmap.html'
 })
-export class ImpactMapComponent {
-    constructor(public docService:DocumentService) {
-
+export class ImpactMapComponent implements OnInit {
+    constructor(public docService:DocumentService, private router: Router, private activatedRoute: ActivatedRoute) {
         if(docService.columns.length == 1) {
             this.docService.columns.push({
                     name: 'Who',
@@ -45,5 +46,19 @@ export class ImpactMapComponent {
                 this.docService.columns[index].previousColumn = this.docService.columns[index - 1];
             }
         }
+    }
+
+    ngOnInit() {
+        this.activatedRoute.queryParams.subscribe(params => {
+            if(params.id !== undefined) {
+                this.docService.load(params.id);
+            }
+        });
+    }
+
+    save() {
+        this.docService.save().subscribe(data => {
+            this.router.navigate(['/map'], {queryParams: { id: data.id }});
+        });
     }
  }

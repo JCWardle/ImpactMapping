@@ -3,6 +3,7 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
     BrowserModule,
     NgbModule.forRoot(),
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes, { enableTracing: true })
+    RouterModule.forRoot(appRoutes, { useHash: true, enableTracing: true }),
+    HttpClientModule
   ],
   declarations: [
     ImpactMapComponent,
