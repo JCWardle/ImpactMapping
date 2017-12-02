@@ -3,7 +3,7 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { CardComponent } from '../card/card.component';
 import { DocumentService } from '../services/documentService';
 import { Router  } from '@angular/router';
-import './home.html'
+import './home.html';
 
 @Component({
     selector: 'home',
