@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { IColumn } from '../models/IColumn';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { prepare } from 'pixi.js';
 
 @Injectable()
 export class DocumentService {
@@ -33,9 +34,35 @@ export class DocumentService {
 
     load(id:any) {
         return this.http.get(this.API_URL + 'impactmap/' + id).subscribe((data:any) => {
+            let columns: IColumn[] = [];
+            let impactmap: Array<IColumn> = data.impactmap;
+            let previousColumn: IColumn = undefined;
 
+            for(let column of impactmap) {
+                if(previousColumn === undefined) {
+                    previousColumn = column;
+                    columns.push(column);
+                    continue;
+                }
+                column.previousColumn = previousColumn;
 
-            this.columns = data.impactmap;
+                for(let card of column.items) {
+                    if(card.attached === undefined) {
+                        continue;
+                    }
+
+                    for(let previousCard of previousColumn.items) {
+                        if(card.attached.id == previousCard.id) {
+                            card.attached = previousCard;
+                            break;
+                        }
+                    }
+                }
+                columns.push(column);
+                previousColumn = column;
+            }
+
+            this.columns = columns;
         });
     }
 }
