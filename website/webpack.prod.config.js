@@ -9,8 +9,9 @@ module.exports = merge(common, {
       sourceMap: true
     }),
     new webpack.DefinePlugin({
+      API: JSON.stringify('http://52.237.76.8:3000/api/'),
       'process.env': {
-      'NODE_ENV': JSON.stringify('production')
+        'NODE_ENV': JSON.stringify('production')
       }
     })
   ]

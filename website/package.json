@@ -28,7 +28,6 @@
   },
   "devDependencies": {
     "@types/node": "^8.0.29",
-    "@types/pixi.js": "^4.5.2",
     "angular2-template-loader": "^0.6.2",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.0",
