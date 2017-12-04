@@ -1,12 +1,12 @@
 <div class="impact-map container-fluid">
-    <div class="row flex-row flex-nowrap">
-        <impactColumn *ngFor="let column of docService.columns" class="col-12 col-md-3" 
-            [column]="column">
-        </impactColumn>
-    </div>
     <div class="row">
         <div class="col">
             <button class="btn-success btn" (click)="save()">Save</button>
         </div>
+    </div>
+    <div class="row flex-row flex-nowrap column-container">
+        <impactColumn *ngFor="let column of docService.columns" class="col-12 col-md-3" 
+            [column]="column">
+        </impactColumn>
     </div>
 </div>

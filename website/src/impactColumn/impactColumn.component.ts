@@ -52,7 +52,15 @@ export class ImpactColumnComponent implements OnInit {
     public drawLines() {
         let svg:SVGFEOffsetElement = <any>document.getElementById('svg');
         svg.innerHTML = "";
-        for(let card of this.column.items) {
+        let cards: ICard[] = [];
+        let column: IColumn = this.column;
+
+        while(column !== undefined) {
+            cards = cards.concat(column.items);
+            column = column.previousColumn;
+        }
+
+        for(let card of cards) {
             this.drawLine(card.id, card.attached.id);
         }
     }
