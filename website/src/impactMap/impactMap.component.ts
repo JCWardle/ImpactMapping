@@ -10,6 +10,8 @@ import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
     templateUrl: './impactmap.html'
 })
 export class ImpactMapComponent implements OnInit {
+    private saving: boolean = false;
+
     constructor(public docService:DocumentService, private router: Router, private activatedRoute: ActivatedRoute) {
         if(docService.columns.length == 1) {
             this.docService.columns.push({
@@ -57,8 +59,14 @@ export class ImpactMapComponent implements OnInit {
     }
 
     save() {
-        this.docService.save().subscribe(data => {
+        this.saving = true;
+        this.docService.save().delay(200).subscribe(data => {
             this.router.navigate(['/map'], {queryParams: { id: data.id }});
+            this.saving = false;
         });
+    }
+
+    startNew() {
+        this.router.navigate(['/']);
     }
  }

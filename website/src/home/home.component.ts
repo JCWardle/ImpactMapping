@@ -19,15 +19,7 @@ export class HomeComponent {
         (<CardComponent>modalRef.componentInstance).heading = "What's your target?";
         (<CardComponent>modalRef.componentInstance).hint = "Deploy our software product 100% faster";
         modalRef.result.then((success) => {
-            this.docService.columns.push(
-                {
-                    name: 'Target',
-                    items: [success],
-                    deleteable: false,
-                    heading: "What's your target",
-                    hint: 'Deploy our software product 100% faster'
-                }
-            );
+            this.docService.create(success);
             this.router.navigate(['map']);
         }, (fail) => {
             

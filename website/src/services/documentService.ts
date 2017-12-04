@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { IColumn } from '../models/IColumn';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { ICard } from '../models/ICard';
 
 //API endpoint configuration from webpack define
 declare var API: string;
@@ -15,6 +16,19 @@ export class DocumentService {
 
     constructor(private http: HttpClient) {
         this.columns = [];
+    }
+
+    create(targetDescription: ICard) {
+        this.columns = [];
+        this.columns.push(
+            {
+                name: 'Target',
+                items: [targetDescription],
+                deleteable: false,
+                heading: "What's your target",
+                hint: 'Deploy our software product 100% faster'
+            }
+        );
     }
 
     save(): Observable<any> {
